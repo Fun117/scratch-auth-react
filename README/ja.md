@@ -1,15 +1,27 @@
 <h1 align="center">
-    Scratch Auth for React
-    <div align="center">
-        <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/fun117/scratch-auth-react">
-        <img alt="GitHub forks" src="https://img.shields.io/github/forks/fun117/scratch-auth-react">
-        <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/fun117/scratch-auth-react">
-        <img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/fun117/scratch-auth-react">
-        <img alt="GitHub License" src="https://img.shields.io/github/license/fun117/scratch-auth-react">
-        <a href="https://www.npmjs.com/package/scratch-auth-react">
-            <img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/scratch-auth-react">
-        </a>
-    </div>
+  Scratch Auth for React
+  <div align="center">
+    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/fun117/scratch-auth-react?&style=social">
+    <img alt="GitHub forks" src="https://img.shields.io/github/forks/fun117/scratch-auth-react?&style=social">
+    <img alt="GitHub watchers" src="https://img.shields.io/github/watchers/fun117/scratch-auth-react?&style=social">
+  </div>
+  <div align="center">
+    <a href="https://zenn.dev/fun117/articles/3ff97f8952a44f">
+      <img alt="Static Badge" src="https://img.shields.io/badge/Zenn-article?style=flat-square&color=blue">
+    </a>
+    <a href="https://github.com/Fun117/scratch-auth-react/issues">
+      <img alt="GitHub Issues or Pull Requests" src="https://img.shields.io/github/issues/fun117/scratch-auth-react?&style=flat-square">
+    </a>
+    <a href="https://www.npmjs.com/package/scratch-auth-react?activeTab=versions">
+      <img alt="NPM Version" src="https://img.shields.io/npm/v/scratch-auth-react?style=flat-square">
+    </a>
+    <a href="https://github.com/Fun117/scratch-auth-react/blob/main/LICENSE.txt">
+      <img alt="GitHub License" src="https://img.shields.io/github/license/fun117/scratch-auth-react?&style=flat-square">
+    </a>
+    <a href="https://www.npmjs.com/package/scratch-auth-react">
+      <img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/scratch-auth-react?&style=flat-square">
+    </a>
+  </div>
 </h1>
 
 # はじめに
