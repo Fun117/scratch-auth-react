@@ -1,4 +1,6 @@
 <h1 align="center">
+  <img alt="Logo" src="https://github.com/Fun117/scratch-auth-react/blob/main/public/scratchauth_100x100.png" />
+
   Scratch Auth for React
   <div align="center">
     <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/fun117/scratch-auth-react?&style=social">
@@ -54,17 +56,23 @@ SCRATCH_AUTH_COOKIE_SECRET_KEY=your_secret_key_here
 > The setup file should be created in the root directory of your project. This file is used to set the OAuth redirect URL. Create it with the name scratch-auth.config.ts as shown below.
 
 `redirect_url` Redirect URL
-When publishing your website, change the URL from the development environment to the production environment.
+When publishing a website, please change the URL from the development environment to the production environment.
 
-```tsx:scratch-auth.config.ts
-import { ScratchAuth_config } from "scratch-auth-react"
+`title` By default, it is `Scratch Auth`, but you can optionally decide your own title.
+
+`expiration` Sets the session storage period. By default, it is `30` days. You can freely set the storage period as an option. If `-1` is set, the storage period is permanently (200 years).
+
+```ts:scratch-auth.config.ts
+import { ScratchAuth_config } from "scratch-auth-react/src/dist/config"
 
 // Perform necessary configurations within the setup file
-const _scratchauth_config: ScratchAuth_config = {
-    redirect_url: `http://localhost:3000/api/auth`, //Change the redirect URL accordingly
+const config: ScratchAuth_config = {
+  redirect_url: `http://localhost:3000/api/auth`, // Required
+  title: `Title`; // option
+  expiration: 30; // option
 }
 
-export default _scratchauth_config
+export default config
 ```
 
 # Pages
@@ -140,7 +148,9 @@ export default function AuthPage() {
   useEffect(() => {
     async function auth() {
       await ScratchAuthSET_session(privateCode); //A uthenticate account
-      window.location.href = `/`; // Redirect to home
+      if (typeof window !== 'undefined') {
+        window.location.href = `/`; // Redirect to home
+      }
     }
     auth()
   }, []); // Pass an empty dependency array to execute only on initial render

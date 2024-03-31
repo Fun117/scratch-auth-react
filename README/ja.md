@@ -1,4 +1,6 @@
 <h1 align="center">
+  <img alt="Logo" src="https://github.com/Fun117/scratch-auth-react/blob/main/public/scratchauth_100x100.png" />
+  
   Scratch Auth for React
   <div align="center">
     <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/fun117/scratch-auth-react?&style=social">
@@ -55,15 +57,21 @@ SCRATCH_AUTH_COOKIE_SECRET_KEY=あなたの秘密の鍵
 `redirect_url` リダイレクトURL
 Webサイトを公開する際に開発環境から本番環境用のURLに変更してください。
 
-```tsx:scratch-auth.config.ts
-import { ScratchAuth_config } from "scratch-auth-react"
+`title` デフォルトでは`Scratch Auth`ですが、オプションであなたのタイトルを決めることができます。
+
+`expiration` Sessionの保存期間を設定します。デフォルトでは`30`日です。オプションで保存期間を自由に設定できます。`-1`の場合は保存期間が永久（200年）に設定されます。
+
+```ts:scratch-auth.config.ts
+import { ScratchAuth_config } from "scratch-auth-react/src/dist/config"
 
 // セットアップファイル内で必要な設定を行います
-const _scratchauth_config: ScratchAuth_config = {
-    redirect_url: `http://localhost:3000/api/auth`, //リダイレクトURLを適切なものに変更してください
+const config: ScratchAuth_config = {
+  redirect_url: `http://localhost:3000/api/auth`, // 必須
+  title: `タイトル`; // オプション
+  expiration: 30; // オプション
 }
 
-export default _scratchauth_config
+export default config
 ```
 
 # ページ
@@ -139,7 +147,9 @@ export default function AuthPage() {
   useEffect(() => {
     async function auth() {
       await ScratchAuthSET_session(privateCode); //アカウント認証
-      window.location.href = `/`; //ホーム移動
+      if (typeof window !== 'undefined') {
+        window.location.href = `/`; //ホーム移動
+      }
     }
     auth()
   }, []); //空の依存配列を渡すことで、初回のレンダリング時にのみ実行される

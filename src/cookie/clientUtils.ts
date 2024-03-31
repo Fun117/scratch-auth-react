@@ -1,5 +1,3 @@
-// src/components/scratch-auth-ts/cookie/clientUtils.ts
-
 'use client';
 
 import { v4 as uuidv4 } from 'uuid';
@@ -17,10 +15,10 @@ export async function   ScratchAuthCookie_setEncryptedData(content: string, valu
     const expires = new Date();
     if (days === -1) {
         // 日数が-1の場合、有効期限を遠い未来に設定（例：200年後）
-        expires.setTime(expires.getTime() + 200 * 365 * 24 * 60 * 60 * 1000);
+        expires.setFullYear(expires.getFullYear() + 200);
     } else {
         // それ以外の場合、指定された日数後に期限切れにする
-        expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+        expires.setDate(expires.getDate() + days);
     }
     document.cookie = `${content}=${encryptedValue};expires=${expires.toUTCString()};path=/`;
 }
@@ -81,6 +79,12 @@ export async function ScratchAuthCookie_setEncryptedSessionId(content: string, v
     const sessionData = sessionId + '|' + hmac; // セッションIDとHMACを結合
     const encryptedValue = ScratchAuthCookie_encrypt(sessionData); // セッションIDとHMACを暗号化
     const expires = new Date();
-    expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+    if (days === -1) {
+        // 日数が-1の場合、有効期限を遠い未来に設定（例：200年後）
+        expires.setFullYear(expires.getFullYear() + 200);
+    } else {
+        // それ以外の場合、指定された日数後に期限切れにする
+        expires.setDate(expires.getDate() + days);
+    }
     document.cookie = `${content}=${encryptedValue};expires=${expires.toUTCString()};path=/`;
 }

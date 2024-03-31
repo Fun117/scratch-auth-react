@@ -1,5 +1,3 @@
-// src/components/scratch-auth-react/main.ts
-
 'use client'
 
 import { ScratchAuthCookie_eraseEncryptedData, ScratchAuthCookie_getDecryptedSessionId, ScratchAuthCookie_setEncryptedData } from "./cookie/clientUtils";
@@ -9,15 +7,14 @@ import { ScratchAuth_verifyToken } from "./cookie/serverUtils";
 // ルートディレクトリからの相対パスを作成する
 // const configFilePath = path.resolve(process.cwd(), 'scratch-auth.config.ts');
 
-export interface ScratchAuth_config {
-    redirect_url: string;
-    expiration?: number;
-}
-
 const config = require(`/scratch-auth.config.ts`).default;
 const redirectUrl = config.redirect_url!;
 if (!redirectUrl) {
     throw new Error('redirect_url is not defined!');
+}
+let title = config.title;
+if (!title) {
+    title=`Scratch Auth`;
 }
 let expiration = config.expiration;
 if (!expiration) {
@@ -71,7 +68,7 @@ export function ScratchAuth_Login() {
         }
 
         if (typeof window !== 'undefined') {
-            window.location.href = `https://auth.itinerary.eu.org/auth/?redirect=${redirectLocation}&name=${`TEST`}`;
+            window.location.href = `https://auth.itinerary.eu.org/auth/?redirect=${redirectLocation}&name=${title}`;
         }
         return true;
     } catch (error) {

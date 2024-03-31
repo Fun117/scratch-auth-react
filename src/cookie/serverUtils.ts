@@ -1,5 +1,3 @@
-// src/components/scratch-auth-ts/cookie/serverUtils.ts
-
 'use server';
 
 import crypto from 'crypto';
