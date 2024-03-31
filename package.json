@@ -1,8 +1,9 @@
 {
   "name": "scratch-auth-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Scratch Auth is a simple OAuth service for Scratch. It provides a straightforward API for developers, and a smooth login experience for end users.",
-  "main": "src/dist/index.d.ts",
+  "main": "node src/install.js",
+  "types": "src/dist/index.d.ts",
   "scripts": {
     "test": ""
   },
