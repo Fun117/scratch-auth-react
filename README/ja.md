@@ -29,7 +29,10 @@
 # はじめに
 Scratch AuthはScratch用のシンプルなOAuthサービスです。開発者にはわかりやすいAPIを、エンドユーザーにはスムーズなログイン体験を提供します。`scratch-auth-react`を使うことで更に簡単にOAuth機能をサイトに実装することができます。
 
-この記事はNext.jsのApprouter,typescriptを使用して解説がされていますが、PagerouterやReactでもあまり変わらないので自分の環境で動作するようにコードを変更して機能するようにしてください。
+このガイドはNext.jsのApprouter,typescriptを使用して解説がされていますが、PagerouterやReactでもあまり変わらないので自分の環境で動作するようにコードを変更して機能するようにしてください。
+
+> [!NOTE]
+> `release` ラベルのないバージョンには潜在的な問題がある可能性があります。問題が発生した場合は、[こちら](https://github.com/Fun117/scratch-auth-react/issues) で報告してください。
 
 ## インストール
 
@@ -67,8 +70,8 @@ import { ScratchAuth_config } from "scratch-auth-react/src/dist/config"
 // セットアップファイル内で必要な設定を行います
 const config: ScratchAuth_config = {
   redirect_url: `http://localhost:3000/api/auth`, // 必須
-  title: `タイトル`; // オプション
-  expiration: 30; // オプション
+  title: `タイトル`, // オプション
+  expiration: 30, // オプション
 }
 
 export default config
