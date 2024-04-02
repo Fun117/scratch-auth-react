@@ -32,7 +32,7 @@ Scratch AuthはScratch用のシンプルなOAuthサービスです。開発者�
 このガイドはNext.jsのApprouter,typescriptを使用して解説がされていますが、PagerouterやReactでもあまり変わらないので自分の環境で動作するようにコードを変更して機能するようにしてください。
 
 > [!NOTE]
-> `release` ラベルのないバージョンには潜在的な問題がある可能性があります。問題が発生した場合は、[こちら](https://github.com/Fun117/scratch-auth-react/issues) で報告してください。
+> ラベルに`pre`、`beta`、`alpha`などが付いているバージョンは安定していない場合があります。問題が発生した場合は、[こちら](https://github.com/Fun117/scratch-auth-react/issues)で報告してください。リリースバージョンの使用をお勧めします。
 
 ## インストール
 
