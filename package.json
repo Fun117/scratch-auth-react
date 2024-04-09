@@ -1,8 +1,17 @@
 {
-  "name": "scratch-auth-react",
+  "author": "Fun117 (https://fun117.vercel.app/)",
   "version": "0.0.5",
+  "name": "scratch-auth-react",
   "description": "Scratch Auth is a simple OAuth service for Scratch. It provides a straightforward API for developers, and a smooth login experience for end users.",
   "main": "src/dist/index.d.ts",
+  "homepage": "https://github.com/Fun117/scratch-auth-react",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fun117/scratch-auth-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Fun117/scratch-auth-react/issues"
+  },
   "bin": {
     "scratch-auth-react": "src/install.js"
   },
@@ -16,7 +25,6 @@
     "scratch",
     "scratch-auth"
   ],
-  "author": "Fun117",
   "license": "MIT",
   "dependencies": {
     "react": "^18.2.0",
