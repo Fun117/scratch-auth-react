@@ -88,37 +88,26 @@ Reactなどの基礎知識の補足などはしません。
 ```tsx:src/app/page.tsx
 'use client'
 
-import React, { useEffect, useState } from 'react';
-import { ScratchAuthGET_session, ScratchAuth_Login, ScratchAuth_Logout } from 'scratch-auth-react';
+import { useAuthSession, ScratchAuth_Login, ScratchAuth_Logout } from 'scratch-auth-react';
 
 export default function Home() {
-  const [session, setSession] = useState<string | null>(null);
-
-  useEffect(() => {
-    const getSession = async () => {
-      const sessionData = await ScratchAuthGET_session(); // session(ユーザー名)を取得
-      setSession(sessionData); // session(ユーザー名)を変数に保存
-    };
-    getSession();
-  }, []);
+  const session = useAuthSession();
 
   return (
-      <>
-        <div className='flex flex-col gap-3 text-center'>
-          {session?
-            <>
-              <h1>{session}</h1>
-              <button onClick={() => ScratchAuth_Logout()}>
-                ログアウト
-              </button>
-            </>:<>
-              <button onClick={() => ScratchAuth_Login()}>
-                ログイン
-              </button> 
-            </>
-          }
-        </div>
-      </>
+    <div className='flex flex-col gap-3 text-center'>
+      {session?
+        <>
+          <h1>{session}</h1>
+          <button onClick={() => ScratchAuth_Logout()}>
+            ログアウト
+          </button>
+        </>:<>
+          <button onClick={() => ScratchAuth_Login()}>
+            ログイン
+          </button> 
+        </>
+      }
+    </div>
   );
 }
 ```
@@ -139,7 +128,7 @@ export default function Home() {
 
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation'
 import { ScratchAuthSET_session } from 'scratch-auth-react';
 
@@ -162,5 +151,3 @@ export default function AuthPage() {
   );
 }
 ```
-
-https://github.com/Fun117/scratch-auth-react

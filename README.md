@@ -90,19 +90,10 @@ By executing `await ScratchAuthGET_session()`, the user's name is returned if lo
 ```tsx:src/app/page.tsx
 'use client'
 
-import React, { useEffect, useState } from 'react';
-import { ScratchAuthGET_session, ScratchAuth_Login, ScratchAuth_Logout } from 'scratch-auth-react';
+import { useAuthSession, ScratchAuth_Login, ScratchAuth_Logout } from 'scratch-auth-react';
 
 export default function Home() {
-  const [session, setSession] = useState<string | null>(null);
-
-  useEffect(() => {
-    const getSession = async () => {
-      const sessionData = await ScratchAuthGET_session(); // Get session (username)
-      setSession(sessionData); // Save session (username) to variable
-    };
-    getSession();
-  }, []);
+  const session = useAuthSession();
 
   return (
       <>
@@ -141,7 +132,7 @@ In the example code, we use Next.js's `useSearchParams` to get parameters, but i
 
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation'
 import { ScratchAuthSET_session } from 'scratch-auth-react';
 
@@ -164,5 +155,3 @@ export default function AuthPage() {
   );
 }
 ```
-
-https://github.com/Fun117/scratch-auth-react
