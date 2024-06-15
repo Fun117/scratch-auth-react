@@ -1,5 +1,6 @@
 export interface ScratchAuth_config {
-    redirect_url: string;
-    title?: string;
-    expiration?: number;
+  redirect_url: string;
+  title?: string;
+  expiration?: number;
+  newWindow?: boolean;
 }

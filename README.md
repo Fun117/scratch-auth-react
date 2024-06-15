@@ -66,14 +66,17 @@ When publishing a website, please change the URL from the development environmen
 
 `expiration` Sets the session storage period. By default, it is `30` days. You can freely set the storage period as an option. If `-1` is set, the storage period is permanently (200 years).
 
+`newWindow` Allows you to set whether the login page is displayed in a pop-up when the login button is pressed. Defaults to `false`.
+
 ```ts:scratch-auth.config.ts
 import { ScratchAuth_config } from "scratch-auth-react/src/dist/config"
 
 // Perform necessary configurations within the setup file
 const config: ScratchAuth_config = {
   redirect_url: `http://localhost:3000/api/auth`, // Required
-  title: `Title`, // option
-  expiration: 30, // option
+  title: `Title`, // optional
+  expiration: 30, // optional
+  newWindow: true, // optional
 }
 
 export default config

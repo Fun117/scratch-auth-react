@@ -64,6 +64,8 @@ Webサイトを公開する際に開発環境から本番環境用のURLに変�
 
 `expiration` Sessionの保存期間を設定します。デフォルトでは`30`日です。オプションで保存期間を自由に設定できます。`-1`の場合は保存期間が永久（200年）に設定されます。
 
+`newWindow` ログインボタンを押した時にポップアップでログインページを表示するかどうかを設定できます。デフォルトは `false` です。
+
 ```ts:scratch-auth.config.ts
 import { ScratchAuth_config } from "scratch-auth-react/src/dist/config"
 
@@ -72,6 +74,7 @@ const config: ScratchAuth_config = {
   redirect_url: `http://localhost:3000/api/auth`, // 必須
   title: `タイトル`, // オプション
   expiration: 30, // オプション
+  newWindow: true, // オプション
 }
 
 export default config
