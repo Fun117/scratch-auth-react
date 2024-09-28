@@ -24,10 +24,6 @@ let expiration = config.expiration;
 if (!expiration) {
   expiration = 30;
 }
-let newWindow = config.newWindow;
-if (!newWindow) {
-  newWindow = false;
-}
 
 export async function ScratchAuthGET_session() {
   try {
@@ -54,6 +50,7 @@ export async function ScratchAuthSET_session(privateCode: null | string) {
         );
         return true;
       }
+      return false;
     } else {
       console.warn("ScratchAuthSET_session: privateCode = null");
     }
@@ -64,9 +61,11 @@ export async function ScratchAuthSET_session(privateCode: null | string) {
   }
 }
 
-export function ScratchAuth_Login() {
+export async function ScratchAuth_Login(redirect?: string) {
   try {
     const redirectLocation = btoa(redirectUrl); // Base64 encoded
+
+    const success = btoa(`/test`); // Base64 encoded
 
     let session;
 
@@ -75,24 +74,15 @@ export function ScratchAuth_Login() {
       session = await ScratchAuthGET_session(); // ログイン状態を確認するためにセッションを取得
     };
 
-    aw(); // 関数呼び出しをここで行う
+    await aw(); // 関数呼び出しをここで行う
 
     if (session) {
       return false; // ログイン済みの場合はログインページにリダイレクトしない
     }
 
     if (typeof window !== "undefined") {
-      const url = `https://auth.itinerary.eu.org/auth/?redirect=${redirectLocation}&name=${title}`;
-      const windowFeatures = "width=800,height=500";
-      if (newWindow) {
-        const handle = window.open(url, "mozillaWindow", windowFeatures);
-        if (!handle) {
-          // ウィンドウを開くことが許可されなかった場合。
-          window.location.href = url;
-        }
-      } else {
-        window.location.href = url;
-      }
+      const url = `https://auth.itinerary.eu.org/auth/?redirect=${redirectLocation}&name=${title}&success=${success}`;
+      window.location.href = url;
     }
     return true;
   } catch (error) {

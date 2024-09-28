@@ -1,6 +1,6 @@
 {
   "author": "Fun117 (https://fun117.dev)",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "name": "scratch-auth-react",
   "description": "Scratch Auth is a simple OAuth service for Scratch. It provides a straightforward API for developers, and a smooth login experience for end users.",
   "main": "src/dist/index.d.ts",
