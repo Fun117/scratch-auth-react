@@ -33,6 +33,9 @@ Scratch Auth is a simple OAuth service for Scratch. It provides developers with 
 
 This guide explains the usage using Next.js's Approuter and TypeScript, but it should work similarly in Pagerouter or React, so adjust the code to make it work in your environment.
 
+> [!CAUTION]
+> このパッケージは今後サポートをしない為、使用を推奨しません。新たにこのパッケージと同じ様な機能を提供するパッケージを公開する予定で、現在開発中です。
+
 > [!NOTE]
 > Versions labeled as `pre`, `beta`, `alpha`, etc., may be unstable. We recommend using the release versions. If you encounter any issues, please report them [here](https://github.com/Fun117/scratch-auth-react/issues).
 
